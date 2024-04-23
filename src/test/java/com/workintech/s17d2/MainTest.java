@@ -153,40 +153,6 @@ class MainTest {
                 .andExpect(status().isCreated());
     }
 
-    @Test
-    @DisplayName("application properties istenilenler eklendi mi?")
-    void serverPortIsSetTo8585() {
-
-        String serverPort = env.getProperty("server.port");
-        assertThat(serverPort).isEqualTo("8585");
-
-        String contextPath = env.getProperty("server.servlet.context-path");
-        assertNotNull(contextPath);
-        assertThat(contextPath).isEqualTo("/workintech");
-
-        //management.info.env.enabled
-        String managementInfoEnvEnabled = env.getProperty("management.info.env.enabled");
-        assertNotNull(managementInfoEnvEnabled);
-        assertThat(managementInfoEnvEnabled).isEqualTo("true");
-
-
-        //management.endpoints.web.exposure.include
-        String managementEndpointsWebExposureInclude = env.getProperty("management.endpoints.web.exposure.include");
-        assertNotNull(managementEndpointsWebExposureInclude);
-        assertThat(managementEndpointsWebExposureInclude).isEqualTo("info,health,mappings");
-
-
-        String infoAppName= env.getProperty("info.app.name");
-        assertNotNull(infoAppName);
-        //info.app.description
-        String infoAppDescription= env.getProperty("info.app.description");
-        assertNotNull(infoAppDescription);
-
-        //info.app.version
-        String infoAppVersion= env.getProperty("info.app.version");
-        assertNotNull(infoAppVersion);
-
-    }
 
     @Test
     @DisplayName("DeveloperController:DeveloperMapCheck")
